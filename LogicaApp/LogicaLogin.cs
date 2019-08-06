@@ -30,7 +30,7 @@ namespace LogicaApp
             lst.Add(new Datos("@Usuario", Usuario));
             lst.Add(new Datos("@Contraseña", Contraseña));
             lst.Add(new Datos("@Mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
-            M.EjecutarSP("IniciarSesion", ref lst);
+            M.EjecutarSP("InicioSesion", ref lst);
             return Mensaje = lst[2].Valor.ToString();
 
         }
