@@ -48,7 +48,7 @@ namespace IUApp
             }
             catch (Exception ex)
             {
-                DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
+                MessageBoxEx.Show(ex.Message);
             }
         }
 
@@ -85,7 +85,7 @@ namespace IUApp
                 }
                 catch (Exception ex)
                 {
-                    DevComponents.DotNetBar.MessageBoxEx.Show(ex.Message);
+                    MessageBoxEx.Show(ex.Message);
                 }
                 dataGridView1.ClearSelection();
                 
