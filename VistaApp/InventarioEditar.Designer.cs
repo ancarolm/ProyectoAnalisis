@@ -266,7 +266,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "InventarioEditar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "InventarioEditar";
+            this.Text = "Inventario";
             this.ResumeLayout(false);
             this.PerformLayout();
 

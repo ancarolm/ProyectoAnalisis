@@ -39,20 +39,21 @@ namespace IUApp
                     if (Mensaje == "Su Contraseña es Incorrecta.")
                     {
                         MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                        textUsuario.Clear();
+                        //textUsuario.Clear();
+                        textContraseña.Clear();
                         textContraseña.Focus();
                     }
                     else
                          if (Mensaje == "El Nombre de Usuario no Existe.")
-                    {
-                        MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                        textUsuario.Clear();
-                        textContraseña.Clear();
-                        textUsuario.Focus();
+                        {
+                            MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                            textUsuario.Clear();
+                            textContraseña.Clear();
+                            textUsuario.Focus();
                     }
                     else
                     {
-                        MessageBoxEx.Show(Mensaje);
+                        //MessageBoxEx.Show(Mensaje);
                         Factura ventana = new Factura();
                         ventana.Show();
                         textContraseña.Clear();

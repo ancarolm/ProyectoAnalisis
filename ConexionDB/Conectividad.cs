@@ -10,7 +10,7 @@ namespace ConexionDB
 {
     public class Conectividad
     {
-        public SqlConnection conexion = new SqlConnection("Server=LEIVA\\SQLEXPRESS;DataBase=SistemaAnalis;Integrated Security=SSPI");
+        public SqlConnection conexion = new SqlConnection("Server=LEIVA\\SQLEXPRESS;DataBase=SistemaAnalisis;Integrated Security=SSPI");
 
         public void Conectar()
         {

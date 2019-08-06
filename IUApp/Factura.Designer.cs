@@ -301,9 +301,9 @@
             this.button4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.button4.Location = new System.Drawing.Point(176, 449);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(72, 24);
+            this.button4.Size = new System.Drawing.Size(92, 24);
             this.button4.TabIndex = 41;
-            this.button4.Text = "Salir";
+            this.button4.Text = "Cerrar Sesión ";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 

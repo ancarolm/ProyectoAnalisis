@@ -305,7 +305,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RegistroEmpleado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RegistroEmpleado";
+            this.Text = "Empleados";
             this.ResumeLayout(false);
             this.PerformLayout();
 
