@@ -108,7 +108,7 @@
             this.Controls.Add(this.btnUsuario);
             this.Controls.Add(this.btnFacturacion);
             this.Controls.Add(this.btnInventario);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventario";

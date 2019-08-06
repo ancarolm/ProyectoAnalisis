@@ -203,7 +203,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtProducto);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Inventario";
             this.Load += new System.EventHandler(this.Inventario_Load);
             this.ResumeLayout(false);
