@@ -23,7 +23,7 @@ namespace IUApp
 
         private void Factura_Load(object sender, EventArgs e)
         {
-            ListarElementos();
+            //ListarElementos();
             ListarPago();
         }
 
@@ -34,13 +34,13 @@ namespace IUApp
             BuscarClientes ventana = new BuscarClientes();
             ventana.Show();
         }
-        private void ListarElementos()
+        /*private void ListarElementos()
         {
       
                 cbxCategoria.DisplayMember = "Nombre";
                 cbxCategoria.ValueMember = "idPlatillo";
                 cbxCategoria.DataSource = C.Listado();
-        }
+        }*/
 
         private void ListarPago()
         {
@@ -60,6 +60,20 @@ namespace IUApp
         {
             
             this.Close();
+        }
+
+        private void Factura_Activated(object sender, EventArgs e)
+        {
+            prodNom.Text = Program.Nombre;
+            prodCat.Text = Program.Categoria;
+            prodPre.Text = Program.Precio +"";
+            txtClienteID.Text = Program.IdCliente+"";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ListaPlatillos LP = new ListaPlatillos();
+            LP.Show();
         }
     }
 }

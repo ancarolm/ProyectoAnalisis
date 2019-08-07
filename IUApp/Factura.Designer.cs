@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtClienteID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -52,8 +52,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.cbxCategoria = new System.Windows.Forms.ComboBox();
             this.comboBox = new System.Windows.Forms.ComboBox();
+            this.prodNom = new System.Windows.Forms.TextBox();
+            this.prodCat = new System.Windows.Forms.TextBox();
+            this.prodPre = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +97,7 @@
             // 
             // textFactura
             // 
-            this.textFactura.Location = new System.Drawing.Point(22, 163);
+            this.textFactura.Location = new System.Drawing.Point(339, 79);
             this.textFactura.Name = "textFactura";
             this.textFactura.Size = new System.Drawing.Size(80, 20);
             this.textFactura.TabIndex = 21;
@@ -106,7 +109,7 @@
             this.label2.Font = new System.Drawing.Font("Arial", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(6)))), ((int)(((byte)(0)))));
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(19, 147);
+            this.label2.Location = new System.Drawing.Point(336, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 20;
@@ -114,7 +117,7 @@
             // 
             // textVendedor
             // 
-            this.textVendedor.Location = new System.Drawing.Point(118, 163);
+            this.textVendedor.Location = new System.Drawing.Point(22, 163);
             this.textVendedor.Name = "textVendedor";
             this.textVendedor.Size = new System.Drawing.Size(80, 20);
             this.textVendedor.TabIndex = 23;
@@ -126,7 +129,7 @@
             this.label3.Font = new System.Drawing.Font("Arial", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(6)))), ((int)(((byte)(0)))));
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(115, 147);
+            this.label3.Location = new System.Drawing.Point(19, 147);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 13);
             this.label3.TabIndex = 22;
@@ -139,7 +142,7 @@
             this.label4.Font = new System.Drawing.Font("Arial", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(6)))), ((int)(((byte)(0)))));
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(214, 147);
+            this.label4.Location = new System.Drawing.Point(115, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 24;
@@ -148,7 +151,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(217, 163);
+            this.dateTimePicker2.Location = new System.Drawing.Point(118, 163);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(100, 20);
             this.dateTimePicker2.TabIndex = 27;
@@ -168,7 +171,7 @@
             // 
             // textPrecio
             // 
-            this.textPrecio.Location = new System.Drawing.Point(149, 202);
+            this.textPrecio.Location = new System.Drawing.Point(217, 453);
             this.textPrecio.Name = "textPrecio";
             this.textPrecio.Size = new System.Drawing.Size(80, 20);
             this.textPrecio.TabIndex = 31;
@@ -180,7 +183,7 @@
             this.label6.Font = new System.Drawing.Font("Arial", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(6)))), ((int)(((byte)(0)))));
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(146, 186);
+            this.label6.Location = new System.Drawing.Point(214, 437);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 30;
@@ -193,7 +196,7 @@
             this.label7.Font = new System.Drawing.Font("Arial", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(6)))), ((int)(((byte)(0)))));
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(248, 186);
+            this.label7.Location = new System.Drawing.Point(232, 146);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 13);
             this.label7.TabIndex = 32;
@@ -245,9 +248,9 @@
             // 
             // Precio
             // 
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle5;
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
             this.Precio.ReadOnly = true;
@@ -255,9 +258,9 @@
             // 
             // Cantidad
             // 
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle6;
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
             this.Cantidad.ReadOnly = true;
@@ -299,7 +302,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button4.Location = new System.Drawing.Point(176, 449);
+            this.button4.Location = new System.Drawing.Point(106, 448);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(92, 24);
             this.button4.TabIndex = 41;
@@ -307,32 +310,62 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // cbxCategoria
-            // 
-            this.cbxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxCategoria.FormattingEnabled = true;
-            this.cbxCategoria.Location = new System.Drawing.Point(22, 201);
-            this.cbxCategoria.Name = "cbxCategoria";
-            this.cbxCategoria.Size = new System.Drawing.Size(114, 21);
-            this.cbxCategoria.TabIndex = 42;
-            // 
             // comboBox
             // 
             this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox.FormattingEnabled = true;
-            this.comboBox.Location = new System.Drawing.Point(251, 202);
+            this.comboBox.Location = new System.Drawing.Point(235, 162);
             this.comboBox.Name = "comboBox";
             this.comboBox.Size = new System.Drawing.Size(114, 21);
             this.comboBox.TabIndex = 43;
+            // 
+            // prodNom
+            // 
+            this.prodNom.Location = new System.Drawing.Point(22, 201);
+            this.prodNom.Name = "prodNom";
+            this.prodNom.Size = new System.Drawing.Size(102, 20);
+            this.prodNom.TabIndex = 44;
+            // 
+            // prodCat
+            // 
+            this.prodCat.Location = new System.Drawing.Point(138, 201);
+            this.prodCat.Name = "prodCat";
+            this.prodCat.Size = new System.Drawing.Size(93, 20);
+            this.prodCat.TabIndex = 45;
+            // 
+            // prodPre
+            // 
+            this.prodPre.Location = new System.Drawing.Point(243, 201);
+            this.prodPre.Name = "prodPre";
+            this.prodPre.Size = new System.Drawing.Size(80, 20);
+            this.prodPre.TabIndex = 46;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(188)))), ((int)(((byte)(5)))));
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button5.Location = new System.Drawing.Point(339, 201);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(54, 20);
+            this.button5.TabIndex = 47;
+            this.button5.Text = "Buscar";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Factura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::IUApp.Properties.Resources.Facturacion;
-            this.ClientSize = new System.Drawing.Size(431, 485);
+            this.ClientSize = new System.Drawing.Size(446, 484);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.prodPre);
+            this.Controls.Add(this.prodCat);
+            this.Controls.Add(this.prodNom);
             this.Controls.Add(this.comboBox);
-            this.Controls.Add(this.cbxCategoria);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -356,6 +389,7 @@
             this.Name = "Factura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Factura";
+            this.Activated += new System.EventHandler(this.Factura_Activated);
             this.Load += new System.EventHandler(this.Factura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -385,10 +419,13 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         public System.Windows.Forms.TextBox IdC;
-        public System.Windows.Forms.ComboBox cbxCategoria;
         public System.Windows.Forms.ComboBox comboBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        public System.Windows.Forms.TextBox prodNom;
+        public System.Windows.Forms.TextBox prodCat;
+        public System.Windows.Forms.TextBox prodPre;
+        private System.Windows.Forms.Button button5;
     }
 }

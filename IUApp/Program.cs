@@ -15,6 +15,11 @@ namespace IUApp
 
         public static int Evento;
 
+        //public static int IdProducto;
+        public static String Nombre;
+        public static String Categoria;
+        public static Decimal Precio;
+
         public static int IdCliente;
 
         [STAThread]
@@ -22,7 +27,7 @@ namespace IUApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ListaPlatillos());
+            Application.Run(new Factura());
         }
     }
 }

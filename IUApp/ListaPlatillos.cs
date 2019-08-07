@@ -101,10 +101,10 @@ namespace IUApp
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            //Program.IdProducto = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-            //Program.Descripcion = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            Program.Nombre = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            Program.Categoria = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             //Program.Marca = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            //Program.PrecioVenta = Convert.ToDecimal(dataGridView1.CurrentRow.Cells[4].Value.ToString());
+            Program.Precio = Convert.ToDecimal(dataGridView1.CurrentRow.Cells[4].Value.ToString());
             //Program.Stock = Convert.ToInt32(dataGridView1.CurrentRow.Cells[6].Value.ToString());
             this.Close();
         }

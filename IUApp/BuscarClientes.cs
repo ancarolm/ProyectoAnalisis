@@ -101,10 +101,10 @@ namespace IUApp
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            Factura F = new Factura();
-            string idCliente = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            //Program.IdCliente = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-            F.txtClienteID.Text = idCliente;
+            //Factura F = new Factura();
+            //string idCliente = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            Program.IdCliente = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            //F.txtClienteID.Text = idCliente;
             this.Close();
         }
 
