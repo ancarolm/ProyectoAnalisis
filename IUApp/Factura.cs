@@ -106,8 +106,10 @@ namespace IUApp
 
         private void button4_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            Login L = new Login();
+            L.Show();
             
-            this.Close();
         }
 
         private void Factura_Activated(object sender, EventArgs e)
@@ -122,6 +124,19 @@ namespace IUApp
         {
             ListaPlatillos LP = new ListaPlatillos();
             LP.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            double total = 0;
+
+            foreach (DataGridViewRow fila in dataGridView1.Rows)
+            {
+
+                total += Convert.ToDouble(fila.Cells["Precio"].Value);
+            }
+
+            textPrecio.Text = Convert.ToString(total);
         }
     }
 }
