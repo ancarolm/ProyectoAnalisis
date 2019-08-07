@@ -28,6 +28,7 @@ namespace IUApp
         {
             //ListarElementos();
             ListarPago();
+            ListarFranquicia();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -35,13 +36,6 @@ namespace IUApp
             BuscarClientes ventana = new BuscarClientes();
             ventana.Show();
         }
-        /*private void ListarElementos()
-        {
-      
-                cbxCategoria.DisplayMember = "Nombre";
-                cbxCategoria.ValueMember = "idPlatillo";
-                cbxCategoria.DataSource = C.Listado();
-        }*/
 
         private void ListarPago()
         {
@@ -106,9 +100,21 @@ namespace IUApp
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Login L = new Login();
-            L.Show();
+            if (textFactura.Text.Trim() != "" || prodNom.Text.Trim() != "")
+            {
+                if (MessageBoxEx.Show("Factura en progreso, ¿está seguro que desea salir?", "Factura", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                {
+                    this.Hide();
+                    Login L = new Login();
+                    L.Show();
+                }
+            } else
+            {
+                this.Hide();
+                Login L = new Login();
+                L.Show();
+            }
+            
             
         }
 
@@ -137,6 +143,52 @@ namespace IUApp
             }
 
             textPrecio.Text = Convert.ToString(total);
+        }
+
+        private void ListarFranquicia()
+        {
+
+            cbxCategoria.DisplayMember = "Ubicacion";
+            cbxCategoria.ValueMember = "idFranquicia";
+            cbxCategoria.DataSource = V.ListarFranquicia();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string mensaje = "";
+            if (cbxCategoria.Text.Trim() != "")
+            {
+                if (textPrecio.Text.Trim() != "")
+                {
+
+
+                    V.idFranquicia = Convert.ToInt32(cbxCategoria.SelectedValue);
+                    V.Nombre = "Venta Realizada";
+                    V.Precio = Convert.ToDecimal(textPrecio.Text);
+                    V.Cantidad = dataGridView1.RowCount;
+                    V.idFactura = Convert.ToInt32(textFactura.Text);
+                    mensaje = V.VentaDetalle();
+                    if (mensaje == "Este registro ya existe.")
+                    {
+                        MessageBoxEx.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        MessageBoxEx.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    }
+                }else
+                {
+                    MessageBoxEx.Show("Ingrese el total a pagar.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textPrecio.Focus();
+                }
+
+            }
+            else
+            {
+                MessageBoxEx.Show("Ingrese la sede de venta.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cbxCategoria.Focus();
+            }
         }
     }
 }
