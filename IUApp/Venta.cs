@@ -8,30 +8,31 @@ namespace IUApp
 {
     class Venta
     {
-        public int IdFactura { get; set; }
-        public int IdVendedor { get; set; }
+        public int IdPlatillo { get; set; }
+        public string Nombre { get; set; }
+        public string Categoria { get; set; }
         public string Detalle { get; set; }
         public decimal Precio { get; set; }
-        public int IdCliente { get; set; }
+        //public int IdCliente { get; set; }
         public decimal SubTotal { get; set; }
 
         public Venta()
         {
-            IdVendedor = 0;
+            IdPlatillo = 0;
             Detalle = "";
             Precio = 0;
-            IdFactura = 0;
-            IdCliente = 0;
+            Nombre = "";
+            Categoria = "";
             SubTotal = 0;
         }
-        public Venta(int idFactura, int idVendedor, string detalle, decimal precio,
-            int idCliente, decimal subtotal)
+        public Venta(int idPlatillo, string nombre, string detalle, string categoria, 
+            decimal precio, decimal subtotal)
         {
-            IdFactura = IdFactura;
-            IdVendedor = idVendedor;
+            IdPlatillo = idPlatillo;
+            Nombre = nombre;
             Detalle = detalle;
             Precio = precio;
-            IdCliente = idCliente;
+            Categoria = categoria;
             SubTotal = subtotal;
         }
     }
