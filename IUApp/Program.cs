@@ -15,6 +15,11 @@ namespace IUApp
 
         public static int Evento;
 
+        public static int IdProducto;
+        public static String Descripcion;
+        public static String Marca;
+        public static Decimal PrecioVenta;
+
         public static int IdCliente;
 
         [STAThread]

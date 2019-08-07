@@ -23,11 +23,25 @@ namespace AppLogica
             return M.Listado("ListarPlatillos", null);
         }
 
+        public DataTable BuscarPlatillo(String objDatos)
+        {
+            DataTable dt = new DataTable();
+            List<Data> lst = new List<Data>();
+            try
+            {
+                lst.Add(new Data("@Nombre", objDatos));
+                dt = M.Listado("BuscarPlatillo", lst);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return dt;
+        }
 
 
-     
 
-        
+
 
 
     }
