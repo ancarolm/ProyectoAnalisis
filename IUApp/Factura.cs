@@ -66,8 +66,8 @@ namespace IUApp
 
         private void LlenarTabla()
         {
-            /*Decimal SumaSubTotal = 0; Decimal SumaIgv=0;*/
-            Decimal SumaTotal = 0;
+            
+            //Decimal SumaTotal = 0;
 
             dataGridView1.Rows.Clear();
             for (int i = 0; i < lst.Count; i++)
@@ -79,24 +79,10 @@ namespace IUApp
                 dataGridView1.Rows[i].Cells[2].Value = lst[i].Categoria;
                 dataGridView1.Rows[i].Cells[3].Value = lst[i].Detalle;
                 dataGridView1.Rows[i].Cells[4].Value = lst[i].Precio;
-                //dataGridView1.Rows[i].Cells[5].Value = lst[i].IdProducto;
-                //dataGridView1.Rows[i].Cells[6].Value = lst[i].Igv;
-                //SumaSubTotal += Convert.ToDecimal(dataGridView1.Rows[i].Cells[4].Value);
-                //SumaIgv += Convert.ToDecimal(dataGridView1.Rows[i].Cells[6].Value);
+                
             }
 
-            /*dataGridView1.Rows.Add();
-            dataGridView1.Rows.Add();
-            //dataGridView1.Rows[lst.Count + 1].Cells[3].Value = "SUB-TOTAL  S/.";
-            //dataGridView1.Rows[lst.Count + 1].Cells[4].Value = SumaSubTotal;
-            dataGridView1.Rows.Add();
-            //dataGridView1.Rows[lst.Count + 2].Cells[3].Value = "      I.G.V.        %";
-            //dataGridView1.Rows[lst.Count + 2].Cells[4].Value = SumaIgv;
-            dataGridView1.Rows.Add();
-            //dataGridView1.Rows[lst.Count + 3].Cells[3].Value = "     TOTAL     S/.";
-            //SumaTotal += SumaSubTotal + SumaIgv;
-            dataGridView1.Rows[lst.Count + 3].Cells[4].Value = SumaTotal;
-            dataGridView1.ClearSelection();*/
+            
 
             dataGridView1.ClearSelection();
         }
@@ -168,31 +154,38 @@ namespace IUApp
                     || txtClienteID.Text.Trim() != "")
                     {
 
+                        try
+                        {
+                            V.idFranquicia = Convert.ToInt32(cbxCategoria.SelectedValue);
+                            V.Nombre = "Venta Realizada";
+                            V.Precio = Convert.ToDecimal(textPrecio.Text);
+                            V.Cantidad = dataGridView1.RowCount;
+                            V.idFactura = Convert.ToInt32(textFactura.Text);
+                            V.idCliente = Convert.ToInt32(txtClienteID.Text);
+                            V.Fecha = Convert.ToDateTime(dateTimePicker2.Value);
+                            V.Descripcion = textDetalle.Text;
+                            V.idPlatillo = 1;
+                            V.idVendedor = Convert.ToInt32(textVendedor.Text);
+                            V.idPago = Convert.ToInt32(comboBox.SelectedValue);
+                            mensaje = V.VentaDetalle();
+                            if (mensaje == "Este registro ya existe.")
+                            {
+                                MessageBoxEx.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                            else
+                            {
+                                MessageBoxEx.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                Limpiar();
 
-                        V.idFranquicia = Convert.ToInt32(cbxCategoria.SelectedValue);
-                        V.Nombre = "Venta Realizada";
-                        V.Precio = Convert.ToDecimal(textPrecio.Text);
-                        V.Cantidad = dataGridView1.RowCount;
-                        V.idFactura = Convert.ToInt32(textFactura.Text);
-                        V.idCliente = Convert.ToInt32(txtClienteID.Text);
-                        V.Fecha = Convert.ToDateTime(dateTimePicker2.Value);
-                        V.Descripcion = textDetalle.Text;
-                        V.idPlatillo = 1;
-                        V.idVendedor = Convert.ToInt32(textVendedor.Text);
-                        V.idPago = Convert.ToInt32(comboBox.SelectedValue);
-                        mensaje = V.VentaDetalle();
-                        if (mensaje == "Este registro ya existe.")
-                        {
-                            MessageBoxEx.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                dataGridView1.Rows.Clear();
+                                dataGridView1.Update();
+
+                            }
+
                         }
-                        else
+                        catch
                         {
-                            MessageBoxEx.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            Limpiar();
-                            
-                            dataGridView1.Rows.Clear();
-                            dataGridView1.Update();
-                           
+                            MessageBoxEx.Show("Por favor verifique sus datos.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
