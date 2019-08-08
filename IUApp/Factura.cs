@@ -8,12 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using System.Net;
+using System.Net.Mail;
 using AppLogica;
 
 namespace IUApp
 {
     public partial class Factura : Form
     {
+        NetworkCredential login;
+        SmtpClient cliente;
+        MailMessage mensaje;
+
         private Platillo C = new Platillo();
         private LogicaVenta V = new LogicaVenta();
 
@@ -175,6 +181,7 @@ namespace IUApp
                             else
                             {
                                 MessageBoxEx.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                enviarEmail();
                                 Limpiar();
 
                                 dataGridView1.Rows.Clear();
@@ -213,6 +220,44 @@ namespace IUApp
             Random numero = new Random();
             int random = numero.Next(0, 10000);
             textFactura.Text = random.ToString();
+        }
+
+        public void enviarEmail()
+        {
+            login = new NetworkCredential("", "");
+            cliente = new SmtpClient("smtp.gmail.com");
+            cliente.Port = 587;
+            cliente.EnableSsl = true;
+            cliente.Credentials = login;
+            mensaje = new MailMessage { From = new MailAddress("") };
+            mensaje.To.Add(new MailAddress(""));
+            mensaje.Body = textFactura.Text + "\n" + txtClienteID.Text + "\n" + textVendedor.Text +
+                "\n" + Convert.ToString(dateTimePicker2)
+                + "\n" + dataGridView1 + "\n" + textPrecio.Text + "\n" + textDetalle.Text;
+            mensaje.BodyEncoding = Encoding.UTF8;
+            mensaje.IsBodyHtml = true;
+            mensaje.Priority = MailPriority.Normal;
+            mensaje.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+            cliente.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);
+            string userstate = "Sending...";
+            cliente.SendAsync(mensaje, userstate);
+
+        }
+
+        private static void SendCompletedCallback(object sender, AsyncCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                MessageBox.Show(string.Format("Envio cancelado.", e.UserState), "Factura", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            if (e.Error != null)
+            {
+                MessageBox.Show(string.Format("{0} {1}.", e.UserState), "Factura", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("El correo ha sido enviado.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         public void Limpiar()
