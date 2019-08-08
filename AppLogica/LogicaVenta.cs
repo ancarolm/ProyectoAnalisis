@@ -22,6 +22,10 @@ namespace AppLogica
         public decimal Precio { get; set; }
         public int Cantidad { get; set; }
         public int idFactura { get; set; }
+        public int idCliente { get; set; }
+        public DateTime Fecha { get; set; }
+        public string Descripcion { get; set; }
+        public int idVendedor { get; set; }
 
         public DataTable Listado()
         {
@@ -53,11 +57,17 @@ namespace AppLogica
                 lst.Add(new Data("@Nombre", Nombre));
                 lst.Add(new Data("@Precio", Precio));
                 lst.Add(new Data("@Cantidad", Cantidad));
+                lst.Add(new Data("@idCliente", idCliente));
+                lst.Add(new Data("@Fecha", Fecha));
+                lst.Add(new Data("@Descripcion", Descripcion));
+                lst.Add(new Data("@idPlatillo", idPlatillo));
+                lst.Add(new Data("@idVendedor", idVendedor));
+                lst.Add(new Data("@idPago", idPago));
                 lst.Add(new Data("@Mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
 
 
                 M.EjecutarSP("VentaDetalle", ref lst);
-                Mensaje = lst[5].Valor.ToString();
+                Mensaje = lst[11].Valor.ToString();
             }
             catch (Exception ex)
             {

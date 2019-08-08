@@ -68,9 +68,11 @@ namespace IUApp
         {
             /*Decimal SumaSubTotal = 0; Decimal SumaIgv=0;*/
             Decimal SumaTotal = 0;
+
             dataGridView1.Rows.Clear();
             for (int i = 0; i < lst.Count; i++)
             {
+      
                 dataGridView1.Rows.Add();
                 dataGridView1.Rows[i].Cells[0].Value = lst[i].IdPlatillo;
                 dataGridView1.Rows[i].Cells[1].Value = lst[i].Nombre;
@@ -95,6 +97,8 @@ namespace IUApp
             //SumaTotal += SumaSubTotal + SumaIgv;
             dataGridView1.Rows[lst.Count + 3].Cells[4].Value = SumaTotal;
             dataGridView1.ClearSelection();*/
+
+            dataGridView1.ClearSelection();
         }
 
 
@@ -160,22 +164,40 @@ namespace IUApp
             {
                 if (textPrecio.Text.Trim() != "")
                 {
-
-
-                    V.idFranquicia = Convert.ToInt32(cbxCategoria.SelectedValue);
-                    V.Nombre = "Venta Realizada";
-                    V.Precio = Convert.ToDecimal(textPrecio.Text);
-                    V.Cantidad = dataGridView1.RowCount;
-                    V.idFactura = Convert.ToInt32(textFactura.Text);
-                    mensaje = V.VentaDetalle();
-                    if (mensaje == "Este registro ya existe.")
+                    if (textFactura.Text.Trim() != ""
+                    || txtClienteID.Text.Trim() != "")
                     {
-                        MessageBoxEx.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+
+                        V.idFranquicia = Convert.ToInt32(cbxCategoria.SelectedValue);
+                        V.Nombre = "Venta Realizada";
+                        V.Precio = Convert.ToDecimal(textPrecio.Text);
+                        V.Cantidad = dataGridView1.RowCount;
+                        V.idFactura = Convert.ToInt32(textFactura.Text);
+                        V.idCliente = Convert.ToInt32(txtClienteID.Text);
+                        V.Fecha = Convert.ToDateTime(dateTimePicker2.Value);
+                        V.Descripcion = textDetalle.Text;
+                        V.idPlatillo = 1;
+                        V.idVendedor = Convert.ToInt32(textVendedor.Text);
+                        V.idPago = Convert.ToInt32(comboBox.SelectedValue);
+                        mensaje = V.VentaDetalle();
+                        if (mensaje == "Este registro ya existe.")
+                        {
+                            MessageBoxEx.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                        else
+                        {
+                            MessageBoxEx.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            Limpiar();
+                            
+                            dataGridView1.Rows.Clear();
+                            dataGridView1.Update();
+                           
+                        }
                     }
                     else
                     {
-                        MessageBoxEx.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
+                        MessageBoxEx.Show("Ingrese los valores requeridos.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }else
                 {
@@ -189,6 +211,37 @@ namespace IUApp
                 MessageBoxEx.Show("Ingrese la sede de venta.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cbxCategoria.Focus();
             }
+
+            
+        }
+
+        private void textFactura_DoubleClick(object sender, EventArgs e)
+        {
+            Random numero = new Random();
+            int random = numero.Next(0, 10000);
+            textFactura.Text = random.ToString();
+        }
+
+        public void Limpiar()
+        {
+            textFactura.Clear();
+            txtClienteID.Clear();
+            Program.IdCliente = 0;
+            textVendedor.Clear();
+            prodNom.Clear();
+            Program.Nombre = "";
+            prodCat.Clear();
+            Program.Categoria = "";
+            prodPre.Clear();
+            Program.Precio = 0;
+            dataGridView1.Rows.Clear();
+            textPrecio.Clear();
+            textDetalle.Clear();
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
         }
     }
 }
