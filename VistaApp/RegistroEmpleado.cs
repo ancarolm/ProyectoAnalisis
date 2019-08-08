@@ -23,17 +23,24 @@ namespace VistaApp
 
         private void button3_Click(object sender, EventArgs e)
         {
-            E.idEmpleado = Convert.ToInt32(textID.Text);
-            E.Nombre = textNombre.Text;
-            E.PrimeApellido = textPrimApellido.Text;
-            E.SegundoApellido = textSegApellido.Text;
-            E.Telefono = Convert.ToInt32(textTelefono.Text);
-            E.Email = textEmail.Text;
-            E.Usuario = textUsuario.Text;
-            E.Contraseña = textContraseña.Text;
-            
-            MessageBox.Show(E.RegistroEmpleados());
-            Limpiar();
+            try
+            {
+                E.idEmpleado = Convert.ToInt32(textID.Text);
+                E.Nombre = textNombre.Text;
+                E.PrimeApellido = textPrimApellido.Text;
+                E.SegundoApellido = textSegApellido.Text;
+                E.Telefono = Convert.ToInt32(textTelefono.Text);
+                E.Email = textEmail.Text;
+                E.Usuario = textUsuario.Text;
+                E.Contraseña = textContraseña.Text;
+
+                MessageBox.Show(E.RegistroEmpleados());
+                Limpiar();
+            }
+            catch
+            {
+                MessageBox.Show("Verifique sus datos.");
+            }
 
         }
 

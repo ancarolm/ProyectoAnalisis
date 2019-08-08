@@ -27,7 +27,8 @@ namespace VistaApp
             Application.Exit();
         }
 
-        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
             if (textUsuario.Text.Trim() != "")
             {
@@ -38,26 +39,26 @@ namespace VistaApp
                     U.Contraseña = textContraseña.Text;
                     Mensaje = U.IniciarSesion();
                     if (Mensaje == "Su Contraseña es Incorrecta.")
-                     {
+                    {
                         MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                         textUsuario.Clear();
-                         textContraseña.Focus();
-                     }
-                     else
+                        textUsuario.Clear();
+                        textContraseña.Focus();
+                    }
+                    else
                          if (Mensaje == "El Nombre de Usuario no Existe.")
-                     {
-                         MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                         textUsuario.Clear();
-                         textContraseña.Clear();
-                         textUsuario.Focus();
-                     }
-                     else
-                     {
-                   // MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                    Menu MP = new Menu();
-      
-                    MP.Show();
-                    this.Hide();
+                    {
+                        MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                        textUsuario.Clear();
+                        textContraseña.Clear();
+                        textUsuario.Focus();
+                    }
+                    else
+                    {
+                        // MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                        Menu MP = new Menu();
+
+                        MP.Show();
+                        this.Hide();
                     }
                 }
                 else
@@ -71,8 +72,8 @@ namespace VistaApp
                 MessageBoxEx.Show("Por Favor Ingrese Nombre de Usuario.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textUsuario.Focus();
             }
-            }
         }
+    }
 
        
     }
