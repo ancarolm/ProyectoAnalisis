@@ -7,7 +7,10 @@ using System.Data;
 using ConexionBD;
 
 namespace LogicaApp
-{
+{/// <summary>
+/// /
+/// Se asignan los datos para la logica del inventario
+/// </summary>
     public class LogicaLogin
     {
          Conexion M = new Conexion();
