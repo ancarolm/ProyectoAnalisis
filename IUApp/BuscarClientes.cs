@@ -92,7 +92,7 @@ namespace IUApp
                 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)// boton para limpiar 
         {
             txtNombre.Clear();
             textApellido.Clear();
@@ -108,7 +108,7 @@ namespace IUApp
             this.Close();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)// Boton para volver a la pantalla anterior
         {
             this.Close();
         }

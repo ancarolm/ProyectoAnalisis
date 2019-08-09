@@ -123,13 +123,13 @@ namespace IUApp
             txtClienteID.Text = Program.IdCliente+"";
         }
 
-        private void button5_Click(object sender, EventArgs e)// busac el platillos, ya sea por id, nombre
+        private void button5_Click(object sender, EventArgs e)// busca el platillo, ya sea por id, nombre
         {
             ListaPlatillos LP = new ListaPlatillos();
             LP.Show();
         }
 
-        private void button6_Click(object sender, EventArgs e)//boton que calcula el total de la
+        private void button6_Click(object sender, EventArgs e)//boton que calcula el total de la cuenta
         {
             double total = 0;
 
@@ -150,7 +150,7 @@ namespace IUApp
             cbxCategoria.DataSource = V.ListarFranquicia();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) // boton de facturar, hace la venta de los productos que se ingresaron a la factura
         {
             string mensaje = "";
             if (cbxCategoria.Text.Trim() != "")
@@ -223,7 +223,7 @@ namespace IUApp
             textFactura.Text = random.ToString();
         }
 
-        public void enviarEmail()
+        public void enviarEmail()// envia por email la factura de la compra que hace el cliente
         {
             login = new NetworkCredential("", "");
             cliente = new SmtpClient("smtp.gmail.com");
@@ -261,7 +261,7 @@ namespace IUApp
             }
         }
 
-        public void Limpiar()
+        public void Limpiar()// Limpia todo cada vez que ingresemos a facturar
         {
             textFactura.Clear();
             txtClienteID.Clear();
