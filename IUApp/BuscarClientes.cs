@@ -53,14 +53,14 @@ namespace IUApp
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)// boton de registar cliente en caso de uqe sea un cliente nuevo
         {
             RegistrarCliente ventana = new RegistrarCliente();
             ventana.Show();
             //this.Hide();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)// boton de buscar, busca ya se con el nombre y el primer apellido
         {
                 //dataGridView1.ClearSelection();
                 DataTable dt = new DataTable();

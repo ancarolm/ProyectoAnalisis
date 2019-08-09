@@ -21,12 +21,12 @@ namespace IUApp
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)// cierra el programa en caso de no ingresar
         {
             Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)// boton de ingresar
         {
             if (textUsuario.Text.Trim() != "")
             {
@@ -36,7 +36,7 @@ namespace IUApp
                     U.Usuario = textUsuario.Text;
                     U.Contraseña = textContraseña.Text;
                     Mensaje = U.IniciarSesion();
-                    if (Mensaje == "Su Contraseña es Incorrecta.")
+                    if (Mensaje == "Su Contraseña es Incorrecta.")// en caso de que la contraseña sea la incorrecta
                     {
                         MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                         //textUsuario.Clear();
@@ -44,7 +44,7 @@ namespace IUApp
                         textContraseña.Focus();
                     }
                     else
-                         if (Mensaje == "El Nombre de Usuario no Existe.")
+                         if (Mensaje == "El Nombre de Usuario no Existe.")// En caso de que el usuario no este en el sistema
                         {
                             MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                             textUsuario.Clear();
@@ -62,13 +62,13 @@ namespace IUApp
                     }
                 }
                 else
-                {
+                {// en caso de que deje el campo de contraseña en blanco
                     MessageBoxEx.Show("Por Favor Ingrese su Contraseña.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     textContraseña.Focus();
                 }
             }
             else
-            {
+            {// en caso de que deje en blanco el campo de usuario
                 MessageBoxEx.Show("Por Favor Ingrese Nombre de Usuario.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textUsuario.Focus();
             }
