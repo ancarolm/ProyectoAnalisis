@@ -32,6 +32,7 @@ namespace IUApp
 
         private void Factura_Load(object sender, EventArgs e)
         {
+            
             //ListarElementos();
             ListarPago();
             ListarFranquicia();
