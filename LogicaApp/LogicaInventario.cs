@@ -9,7 +9,10 @@ using ConexionBD;
 using System.Data.SqlClient;
 
 namespace LogicaApp
-{
+{/// <summary>
+/// 
+/// Se asignan los datos para la logica del inventario
+/// </summary>
     public class LogicaInventario
     {
          Conexion M = new Conexion();
