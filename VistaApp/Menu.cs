@@ -36,5 +36,11 @@ namespace VistaApp
             ventana.Show();
             this.Hide();
         }
+
+        private void btnFacturacion_Click(object sender, EventArgs e)
+        {
+            Facturas Fac = new Facturas();
+            Fac.Show();
+        }
     }
 }

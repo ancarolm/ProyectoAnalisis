@@ -81,6 +81,7 @@
             this.btnFacturacion.Text = "Facturación";
             this.btnFacturacion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnFacturacion.UseVisualStyleBackColor = false;
+            this.btnFacturacion.Click += new System.EventHandler(this.btnFacturacion_Click);
             // 
             // btnInventario
             // 

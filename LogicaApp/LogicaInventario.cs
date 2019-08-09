@@ -91,6 +91,11 @@ namespace LogicaApp
             return M.Listado("ListarProveedores", null);
         }
 
+        public DataTable ListarFacturas()
+        {
+            return M.Listado("ListarFacturas", null);
+        }
+
         public String AgregarInventario()
         {
             List<Datos> lst = new List<Datos>();

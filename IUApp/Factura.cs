@@ -10,7 +10,11 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using System.Net;
 using System.Net.Mail;
+using iTextSharp.text;
+using iTextSharp;
 using AppLogica;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace IUApp
 {
@@ -181,11 +185,11 @@ namespace IUApp
                             else
                             {
                                 MessageBoxEx.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                enviarEmail();
-                                Limpiar();
+                                //enviarEmail();
+                                //Limpiar();
 
-                                dataGridView1.Rows.Clear();
-                                dataGridView1.Update();
+                                //dataGridView1.Rows.Clear();
+                                //dataGridView1.Update();
 
                             }
 
@@ -222,27 +226,7 @@ namespace IUApp
             textFactura.Text = random.ToString();
         }
 
-        public void enviarEmail()
-        {
-            login = new NetworkCredential("", "");
-            cliente = new SmtpClient("smtp.gmail.com");
-            cliente.Port = 587;
-            cliente.EnableSsl = true;
-            cliente.Credentials = login;
-            mensaje = new MailMessage { From = new MailAddress("") };
-            mensaje.To.Add(new MailAddress(""));
-            mensaje.Body = textFactura.Text + "\n" + txtClienteID.Text + "\n" + textVendedor.Text +
-                "\n" + Convert.ToString(dateTimePicker2)
-                + "\n" + dataGridView1 + "\n" + textPrecio.Text + "\n" + textDetalle.Text;
-            mensaje.BodyEncoding = Encoding.UTF8;
-            mensaje.IsBodyHtml = true;
-            mensaje.Priority = MailPriority.Normal;
-            mensaje.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
-            cliente.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);
-            string userstate = "Sending...";
-            cliente.SendAsync(mensaje, userstate);
-
-        }
+        
 
         private static void SendCompletedCallback(object sender, AsyncCompletedEventArgs e)
         {
@@ -280,6 +264,69 @@ namespace IUApp
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
             dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF | *.pdf", ValidateNames = true })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A4.Rotate());
+
+                    try
+                    {
+                        PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
+                        doc.Open();
+                        doc.Add(new iTextSharp.text.Paragraph("ID Factura: " + textFactura.Text 
+                            + "\n" + "ID Cliente: " + txtClienteID.Text + "\n" +
+                            "ID Vendedor: " + textVendedor.Text + "\n" + "Fecha: " + dateTimePicker2.Value
+                            + "\n" + "Franquicia: " + cbxCategoria.SelectedValue + "\n" + "Total: " + textPrecio.Text + "\n" + "Detalle: " + textDetalle.Text));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        doc.Close();
+                    }
+                }
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string path = dlg.FileName.ToString();
+
+                login = new NetworkCredential("angiecarolm98", "angiecaro");
+                cliente = new SmtpClient("smtp.gmail.com");
+                cliente.Port = 587;
+                cliente.EnableSsl = true;
+                cliente.Credentials = login;
+                mensaje = new MailMessage { From = new MailAddress("angiecarolm98@gmail.com") };
+                mensaje.To.Add(new MailAddress("angiecarolm98@gmail.com"));
+                mensaje.Body = "Adjunto por correo la factura #: " + textFactura.Text;
+                mensaje.Attachments.Add(new Attachment(path));
+                mensaje.BodyEncoding = Encoding.UTF8;
+                mensaje.IsBodyHtml = true;
+                mensaje.Priority = MailPriority.Normal;
+                mensaje.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+                cliente.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);
+                string userstate = "Sending...";
+                cliente.SendAsync(mensaje, userstate);
+
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+            dataGridView1.Refresh();
         }
     }
 }
