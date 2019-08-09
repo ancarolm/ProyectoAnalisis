@@ -95,7 +95,7 @@ namespace IUApp
         }
 
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)// boton para hacer el cierre de sesion
         {
             if (textFactura.Text.Trim() != "" || prodNom.Text.Trim() != "")
             {
@@ -123,13 +123,13 @@ namespace IUApp
             txtClienteID.Text = Program.IdCliente+"";
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)// busac el platillos, ya sea por id, nombre
         {
             ListaPlatillos LP = new ListaPlatillos();
             LP.Show();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)//boton que calcula el total de la
         {
             double total = 0;
 
