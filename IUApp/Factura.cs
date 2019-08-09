@@ -38,7 +38,7 @@ namespace IUApp
             ListarFranquicia();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)// Boton de buscar por id al cliente
         {
             BuscarClientes ventana = new BuscarClientes();
             ventana.Show();
@@ -52,7 +52,7 @@ namespace IUApp
             comboBox.DataSource = V.Listado();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)// Boton de agregar algun producto a la factura
         {
             Venta V = new Venta();
 
