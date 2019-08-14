@@ -27,7 +27,7 @@ namespace IUApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Factura());
+            Application.Run(new Login());
         }
     }
 }
