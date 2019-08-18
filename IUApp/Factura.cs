@@ -239,7 +239,7 @@ namespace IUApp
             mensaje.Priority = MailPriority.Normal;
             mensaje.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
             cliente.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);
-            string userstate = "Sending...";
+            string userstate = "Enviando...";
             cliente.SendAsync(mensaje, userstate);
 
         }
