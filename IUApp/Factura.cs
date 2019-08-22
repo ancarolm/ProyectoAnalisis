@@ -32,12 +32,13 @@ namespace IUApp
 
         private void Factura_Load(object sender, EventArgs e)
         {
+            
             //ListarElementos();
             ListarPago();
             ListarFranquicia();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)// Boton de buscar por id al cliente
         {
             BuscarClientes ventana = new BuscarClientes();
             ventana.Show();
@@ -51,7 +52,7 @@ namespace IUApp
             comboBox.DataSource = V.Listado();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)// Boton de agregar algun producto a la factura
         {
             Venta V = new Venta();
 
@@ -94,7 +95,7 @@ namespace IUApp
         }
 
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)// boton para hacer el cierre de sesion
         {
             if (textFactura.Text.Trim() != "" || prodNom.Text.Trim() != "")
             {
@@ -122,13 +123,13 @@ namespace IUApp
             txtClienteID.Text = Program.IdCliente+"";
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)// busca el platillo, ya sea por id, nombre
         {
             ListaPlatillos LP = new ListaPlatillos();
             LP.Show();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)//boton que calcula el total de la cuenta
         {
             double total = 0;
 
@@ -149,7 +150,7 @@ namespace IUApp
             cbxCategoria.DataSource = V.ListarFranquicia();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) // boton de facturar, hace la venta de los productos que se ingresaron a la factura
         {
             string mensaje = "";
             if (cbxCategoria.Text.Trim() != "")
@@ -222,7 +223,7 @@ namespace IUApp
             textFactura.Text = random.ToString();
         }
 
-        public void enviarEmail()
+        public void enviarEmail()// envia por email la factura de la compra que hace el cliente
         {
             login = new NetworkCredential("", "");
             cliente = new SmtpClient("smtp.gmail.com");
@@ -260,7 +261,7 @@ namespace IUApp
             }
         }
 
-        public void Limpiar()
+        public void Limpiar()// Limpia todo cada vez que ingresemos a facturar
         {
             textFactura.Clear();
             txtClienteID.Clear();

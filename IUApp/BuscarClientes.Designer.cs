@@ -51,9 +51,10 @@
             // 
             // textApellido
             // 
-            this.textApellido.Location = new System.Drawing.Point(159, 150);
+            this.textApellido.Location = new System.Drawing.Point(212, 185);
+            this.textApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textApellido.Name = "textApellido";
-            this.textApellido.Size = new System.Drawing.Size(80, 20);
+            this.textApellido.Size = new System.Drawing.Size(105, 22);
             this.textApellido.TabIndex = 11;
             // 
             // label3
@@ -63,17 +64,19 @@
             this.label3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(6)))), ((int)(((byte)(0)))));
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(156, 134);
+            this.label3.Location = new System.Drawing.Point(208, 165);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 14);
+            this.label3.Size = new System.Drawing.Size(118, 16);
             this.label3.TabIndex = 10;
             this.label3.Text = "Primer apellido:";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(31, 150);
+            this.txtNombre.Location = new System.Drawing.Point(41, 185);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(80, 20);
+            this.txtNombre.Size = new System.Drawing.Size(105, 22);
             this.txtNombre.TabIndex = 9;
             // 
             // label1
@@ -83,9 +86,10 @@
             this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(6)))), ((int)(((byte)(0)))));
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(28, 134);
+            this.label1.Location = new System.Drawing.Point(37, 165);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 14);
+            this.label1.Size = new System.Drawing.Size(67, 16);
             this.label1.TabIndex = 8;
             this.label1.Text = "Nombre:";
             // 
@@ -104,8 +108,9 @@
             this.Email,
             this.Telefono});
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(464, 154);
+            this.dataGridView1.Size = new System.Drawing.Size(619, 190);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
@@ -159,9 +164,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(31, 185);
+            this.panel1.Location = new System.Drawing.Point(41, 228);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(464, 157);
+            this.panel1.Size = new System.Drawing.Size(619, 193);
             this.panel1.TabIndex = 12;
             // 
             // button1
@@ -171,9 +177,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(275, 147);
+            this.button1.Location = new System.Drawing.Point(367, 181);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 23);
+            this.button1.Size = new System.Drawing.Size(141, 28);
             this.button1.TabIndex = 19;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = false;
@@ -186,9 +193,10 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button2.Location = new System.Drawing.Point(31, 372);
+            this.button2.Location = new System.Drawing.Point(41, 469);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 23);
+            this.button2.Size = new System.Drawing.Size(141, 28);
             this.button2.TabIndex = 20;
             this.button2.Text = "Registrar";
             this.button2.UseVisualStyleBackColor = false;
@@ -201,9 +209,10 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(217, 372);
+            this.button3.Location = new System.Drawing.Point(289, 469);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(106, 23);
+            this.button3.Size = new System.Drawing.Size(141, 28);
             this.button3.TabIndex = 21;
             this.button3.Text = "Limpiar";
             this.button3.UseVisualStyleBackColor = false;
@@ -216,9 +225,10 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Arial", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.button4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button4.Location = new System.Drawing.Point(12, 12);
+            this.button4.Location = new System.Drawing.Point(16, 15);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(81, 22);
+            this.button4.Size = new System.Drawing.Size(108, 27);
             this.button4.TabIndex = 25;
             this.button4.Text = "← VOLVER";
             this.button4.UseVisualStyleBackColor = false;
@@ -226,10 +236,10 @@
             // 
             // BuscarClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::IUApp.Properties.Resources.registro;
-            this.ClientSize = new System.Drawing.Size(535, 425);
+            this.ClientSize = new System.Drawing.Size(713, 523);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -240,6 +250,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "BuscarClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes";

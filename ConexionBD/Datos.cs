@@ -11,6 +11,10 @@ namespace ConexionBD
 {
     public class Datos
     {
+        /// <summary>
+        /// 
+        /// Se asignas los datos de la base 
+        /// </summary>
         private String m_Nombre;
         private Object m_Valor;
         private SqlDbType m_TipoDato;
