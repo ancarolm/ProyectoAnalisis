@@ -21,7 +21,7 @@ namespace IUApp
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)// registra el cliente a la base de datos una vez que haya completado todos los espacios
         {
             if (textID.Text.Trim() != "")
             {
@@ -97,7 +97,7 @@ namespace IUApp
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)// cierra la ventana de registrar un cliente nuevo
         {
             this.Close();
         }

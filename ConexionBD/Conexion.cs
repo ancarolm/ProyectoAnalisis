@@ -8,7 +8,10 @@ using System.Data;
 using System.Data.SqlClient;
 
 namespace ConexionBD
-{
+{/// <summary>
+/// 
+/// Conectamos el rpograma con la base de datos
+/// </summary>
     public class Conexion
     {
         public SqlConnection conexion = new SqlConnection("Server=LEIVA\\SQLEXPRESS;DataBase=SistemaAnalisis;Integrated Security=SSPI");
@@ -24,7 +27,13 @@ namespace ConexionBD
             if (conexion.State == ConnectionState.Open)
                 conexion.Close();
         }
-
+        /// <summary>
+        /// 
+        /// Conecta los datos con la base de datos
+        /// </summary>
+        /// <param name="NombreSP"></param>
+        /// <param name="lst"></param>
+        /// <returns></returns>
         public DataTable Listado(String NombreSP, List<Datos> lst)
         {
             DataTable dt = new DataTable();
