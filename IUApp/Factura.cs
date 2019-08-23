@@ -166,11 +166,11 @@ namespace IUApp
                     {
 
                         try
-                        {
-                            V.idFranquicia = Convert.ToInt32(cbxCategoria.SelectedValue);
-                            V.Nombre = "Venta Realizada";
+                        {   //pase de parametros de los campos de la vista de factura
+                            //V.idFranquicia = Convert.ToInt32(cbxCategoria.SelectedValue);
+                            //V.Pago = Convert.ToInt32(comboBox.SelectedValue);
                             V.Precio = Convert.ToDecimal(textPrecio.Text);
-                            V.Cantidad = dataGridView1.RowCount;
+                            //V.Cantidad = dataGridView1.RowCount;
                             V.idFactura = Convert.ToInt32(textFactura.Text);
                             V.idCliente = Convert.ToInt32(txtClienteID.Text);
                             V.Fecha = Convert.ToDateTime(dateTimePicker2.Value);
@@ -178,14 +178,43 @@ namespace IUApp
                             V.idPlatillo = 1;
                             V.idVendedor = Convert.ToInt32(textVendedor.Text);
                             V.idPago = Convert.ToInt32(comboBox.SelectedValue);
-                            mensaje = V.VentaDetalle();
-                            if (mensaje == "Este registro ya existe.")
+                            V.idCategoria = 1;
+                            mensaje = V.VentaDetalle(); //método en clase lógica para ingresar a base de datos
+                            if (mensaje == "Este registro ya existe.") //verifica que el registro no sea existente
                             {
                                 MessageBoxEx.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             }
                             else
-                            {
-                                MessageBoxEx.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            {   //si el registro no existe entonces procede a facturar 
+                                if (MessageBoxEx.Show(mensaje + "\n" + "¿Desea guardar la factura en el ordenador?", "Factura", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                                {
+                                    using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF | *.pdf", ValidateNames = true })
+                                    {
+                                        if (sfd.ShowDialog() == DialogResult.OK)
+                                        {
+                                            iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A4.Rotate());
+
+                                            try
+                                            {   //se guardan los detalles seleccionados en el PDF
+                                                PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
+                                                doc.Open();
+                                                doc.Add(new iTextSharp.text.Paragraph("ID Factura: " + textFactura.Text
+                                                    + "\n" + "ID Cliente: " + txtClienteID.Text + "\n" +
+                                                    "ID Vendedor: " + textVendedor.Text + "\n" + "Fecha: " + dateTimePicker2.Value
+                                                    + "\n" + "Franquicia: " + cbxCategoria.SelectedValue + "\n" + "Total: " + textPrecio.Text + "\n" + "Detalle: " + textDetalle.Text));
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            }
+                                            finally
+                                            {
+                                                doc.Close();
+                                            }
+                                        }
+                                    }
+
+                                }
                                 //enviarEmail();
                                 //Limpiar();
 
@@ -195,16 +224,18 @@ namespace IUApp
                             }
 
                         }
-                        catch
+                        catch (Exception ex)
                         {
-                            MessageBoxEx.Show("Por favor verifique sus datos.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            throw ex;
+                            //MessageBoxEx.Show("Por favor verifique sus datos.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
                         MessageBoxEx.Show("Ingrese los valores requeridos.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }else
+                }
+                else
                 {
                     MessageBoxEx.Show("Ingrese el total a pagar.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     textPrecio.Focus();
@@ -217,7 +248,7 @@ namespace IUApp
                 cbxCategoria.Focus();
             }
 
-            
+
         }
 
         private void textFactura_DoubleClick(object sender, EventArgs e)
@@ -227,9 +258,7 @@ namespace IUApp
             textFactura.Text = random.ToString();
         }
 
-<<<<<<< HEAD
-        
-=======
+
         public void enviarEmail()// envia por email la factura de la compra que hace el cliente
         {
             login = new NetworkCredential("", "");
@@ -251,7 +280,7 @@ namespace IUApp
             cliente.SendAsync(mensaje, userstate);
 
         }
->>>>>>> f7675bc3c373123190e871a867e34176773bb8ae
+
 
         private static void SendCompletedCallback(object sender, AsyncCompletedEventArgs e)
         {
@@ -322,30 +351,34 @@ namespace IUApp
 
         private void button8_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
 
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                string path = dlg.FileName.ToString();
 
-                login = new NetworkCredential("angiecarolm98", "angiecaro");
-                cliente = new SmtpClient("smtp.gmail.com");
-                cliente.Port = 587;
-                cliente.EnableSsl = true;
-                cliente.Credentials = login;
-                mensaje = new MailMessage { From = new MailAddress("angiecarolm98@gmail.com") };
-                mensaje.To.Add(new MailAddress("angiecarolm98@gmail.com"));
-                mensaje.Body = "Adjunto por correo la factura #: " + textFactura.Text;
-                mensaje.Attachments.Add(new Attachment(path));
-                mensaje.BodyEncoding = Encoding.UTF8;
-                mensaje.IsBodyHtml = true;
-                mensaje.Priority = MailPriority.Normal;
-                mensaje.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
-                cliente.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);
-                string userstate = "Sending...";
-                cliente.SendAsync(mensaje, userstate);
+            login = new NetworkCredential("homerosrestaurante", "administrador");
+            cliente = new SmtpClient("smtp.gmail.com");
+            cliente.Port = 587;
+            cliente.EnableSsl = true;
+            cliente.Credentials = login;
+            mensaje = new MailMessage { From = new MailAddress("homerosrestaurante@gmail.com") };
+            mensaje.To.Add(new MailAddress("homerosrestaurante@gmail.com"));
+            mensaje.Body = "Adjunto por correo la factura #: \n " + textFactura.Text
+            + Environment.NewLine + "ID Cliente: \n " + txtClienteID.Text + Environment.NewLine +
+                        "ID Vendedor: \n " + textVendedor.Text + Environment.NewLine + "Fecha: \n " + dateTimePicker2.Value
+                        + Environment.NewLine + "Franquicia: \n " + cbxCategoria.SelectedValue + Environment.NewLine +
+                            "Total: \n " + textPrecio.Text + Environment.NewLine + "Detalle: \n " + textDetalle.Text;
+            mensaje.BodyEncoding = Encoding.UTF8;
+            mensaje.IsBodyHtml = false;
+            mensaje.Priority = MailPriority.Normal;
+            mensaje.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+            cliente.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);
+            string userstate = "Sending...";
+            cliente.SendAsync(mensaje, userstate);
 
-            }
+            Limpiar();
+
+            dataGridView1.Rows.Clear();
+            dataGridView1.Update();
+
+
         }
 
         private void button9_Click(object sender, EventArgs e)

@@ -14,7 +14,7 @@ namespace ConexionBD
 /// </summary>
     public class Conexion
     {
-        public SqlConnection conexion = new SqlConnection("Server=LEIVA\\SQLEXPRESS;DataBase=SistemaAnalisis;Integrated Security=SSPI");
+        public SqlConnection conexion = new SqlConnection("Server=LEIVA\\SQLEXPRESS;DataBase=PruebaAnalisis;Integrated Security=SSPI");
 
         public void Conectar()
         {

@@ -26,6 +26,7 @@ namespace AppLogica
         public DateTime Fecha { get; set; }
         public string Descripcion { get; set; }
         public int idVendedor { get; set; }
+        public int idCategoria { get; set; }
 
         public DataTable Listado()
         {
@@ -52,22 +53,20 @@ namespace AppLogica
 
             try
             {
-                lst.Add(new Data("@idVenta", idFactura));
-                lst.Add(new Data("@idSede", idSede));
-                lst.Add(new Data("@Nombre", Nombre));
-                lst.Add(new Data("@Precio", Precio));
-                lst.Add(new Data("@Cantidad", Cantidad));
+                lst.Add(new Data("@idFactura", idFactura));
                 lst.Add(new Data("@idCliente", idCliente));
                 lst.Add(new Data("@Fecha", Fecha));
+                lst.Add(new Data("@Precio", Precio));
                 lst.Add(new Data("@Descripcion", Descripcion));
                 lst.Add(new Data("@idPlatillo", idPlatillo));
                 lst.Add(new Data("@idVendedor", idVendedor));
                 lst.Add(new Data("@idPago", idPago));
+                lst.Add(new Data("@idCategoria", idCategoria));
                 lst.Add(new Data("@Mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
 
 
-                M.EjecutarSP("VentaDetalle", ref lst);
-                Mensaje = lst[11].Valor.ToString();
+                M.EjecutarSP("VentaDetalle", ref lst); //ejecución del proceso almacenado en base de datos
+                Mensaje = lst[9].Valor.ToString();
             }
             catch (Exception ex)
             {
