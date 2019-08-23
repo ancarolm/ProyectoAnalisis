@@ -52,12 +52,12 @@ namespace VistaApp
                                     Mensaje = P.AgregarInventario();
                                     if (Mensaje == "Este Producto ya ha sido Registrado.")
                                     {
-                                        MessageBox.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        MessageBox.Show(Mensaje, "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                     }
                                     else
                                     {
                                         //MessageBox.Show("¡Producto agregado a inventario!");
-                                        MessageBox.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MessageBox.Show(Mensaje, "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         txtProducto.Clear();
                                         txtMarca.Clear();
                                         txtNombre.Clear();
@@ -79,37 +79,37 @@ namespace VistaApp
                                     P.Brand = txtMarca.Text;
                                     P.IdProveedor = Convert.ToInt32(txtProveedor.Text);
                                     P.IdFranquicia = Convert.ToInt32(txtFranquicia.Text);
-                                    MessageBox.Show(P.EditarInventario(), "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show(P.EditarInventario(), "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     Limpiar();
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Por Favor Ingrese Stock del Producto.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Por Favor Ingrese Stock del Producto.", "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 txtCantidad.Focus();
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Por Favor Ingrese Precio de Venta del Producto.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Por Favor Ingrese Precio de Venta del Producto.", "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             txtDetalle.Focus();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Por Favor Ingrese Precio de Compra del Producto.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Por Favor Ingrese Precio de Compra del Producto.", "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtCategoria.Focus();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Por Favor Ingrese Marca del Producto.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Por Favor Ingrese Marca del Producto.", "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtNombre.Focus();
                 }
             }
             else
             {
-                MessageBox.Show("Por Favor Ingrese Nombre del Producto.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por Favor Ingrese Nombre del Producto.", "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtProducto.Focus();
             }
         }

@@ -103,7 +103,7 @@ namespace IUApp
         {
             if (textFactura.Text.Trim() != "" || prodNom.Text.Trim() != "")
             {
-                if (MessageBoxEx.Show("Factura en progreso, ¿está seguro que desea salir?", "Factura", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                if (MessageBox.Show("Factura en progreso, ¿está seguro que desea salir?", "Factura", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
                 {
                     this.Hide();
                     Login L = new Login();
@@ -182,11 +182,11 @@ namespace IUApp
                             mensaje = V.VentaDetalle(); //método en clase lógica para ingresar a base de datos
                             if (mensaje == "Este registro ya existe.") //verifica que el registro no sea existente
                             {
-                                MessageBoxEx.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show(mensaje, "Factura", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             }
                             else
                             {   //si el registro no existe entonces procede a facturar 
-                                if (MessageBoxEx.Show(mensaje + "\n" + "¿Desea guardar la factura en el ordenador?", "Factura", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                                if (MessageBox.Show(mensaje + "\n" + "¿Desea guardar la factura en el ordenador?", "Factura", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                                 {
                                     using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF | *.pdf", ValidateNames = true })
                                     {
@@ -232,19 +232,19 @@ namespace IUApp
                     }
                     else
                     {
-                        MessageBoxEx.Show("Ingrese los valores requeridos.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ingrese los valores requeridos.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBoxEx.Show("Ingrese el total a pagar.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ingrese el total a pagar.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     textPrecio.Focus();
                 }
 
             }
             else
             {
-                MessageBoxEx.Show("Ingrese la sede de venta.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ingrese la sede de venta.", "Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cbxCategoria.Focus();
             }
 
@@ -256,29 +256,6 @@ namespace IUApp
             Random numero = new Random();
             int random = numero.Next(0, 10000);
             textFactura.Text = random.ToString();
-        }
-
-
-        public void enviarEmail()// envia por email la factura de la compra que hace el cliente
-        {
-            login = new NetworkCredential("", "");
-            cliente = new SmtpClient("smtp.gmail.com");
-            cliente.Port = 587;
-            cliente.EnableSsl = true;
-            cliente.Credentials = login;
-            mensaje = new MailMessage { From = new MailAddress("") };
-            mensaje.To.Add(new MailAddress(""));
-            mensaje.Body = textFactura.Text + "\n" + txtClienteID.Text + "\n" + textVendedor.Text +
-                "\n" + Convert.ToString(dateTimePicker2)
-                + "\n" + dataGridView1 + "\n" + textPrecio.Text + "\n" + textDetalle.Text;
-            mensaje.BodyEncoding = Encoding.UTF8;
-            mensaje.IsBodyHtml = true;
-            mensaje.Priority = MailPriority.Normal;
-            mensaje.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
-            cliente.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);
-            string userstate = "Enviando...";
-            cliente.SendAsync(mensaje, userstate);
-
         }
 
 
@@ -320,6 +297,8 @@ namespace IUApp
             dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
         }
 
+        //por medio de la extensión itext se genera un PDF 
+        //el usuario escoge la ruta en la que desea guardar el archivo
         private void button7_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF | *.pdf", ValidateNames = true })
@@ -351,15 +330,15 @@ namespace IUApp
 
         private void button8_Click(object sender, EventArgs e)
         {
+            //al hacer click en el botón enviar se validan las rutas para enviar el correo
 
-
-            login = new NetworkCredential("homerosrestaurante", "administrador");
-            cliente = new SmtpClient("smtp.gmail.com");
+            login = new NetworkCredential("homerosrestaurante", "administrador"); //validación de credenciales de correo
+            cliente = new SmtpClient("smtp.gmail.com"); //servicio de correo a utilizar
             cliente.Port = 587;
             cliente.EnableSsl = true;
             cliente.Credentials = login;
-            mensaje = new MailMessage { From = new MailAddress("homerosrestaurante@gmail.com") };
-            mensaje.To.Add(new MailAddress("homerosrestaurante@gmail.com"));
+            mensaje = new MailMessage { From = new MailAddress("homerosrestaurante@gmail.com") }; 
+            mensaje.To.Add(new MailAddress("homerosrestaurante@gmail.com")); //se envia de la misma dirección al mismo correo
             mensaje.Body = "Adjunto por correo la factura #: \n " + textFactura.Text
             + Environment.NewLine + "ID Cliente: \n " + txtClienteID.Text + Environment.NewLine +
                         "ID Vendedor: \n " + textVendedor.Text + Environment.NewLine + "Fecha: \n " + dateTimePicker2.Value

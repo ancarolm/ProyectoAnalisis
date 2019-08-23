@@ -147,7 +147,7 @@ namespace VistaApp
             }
             else
             {
-                MessageBoxEx.Show("Debe Seleccionar la Fila a Editar.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe Seleccionar la Fila a Editar.", "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

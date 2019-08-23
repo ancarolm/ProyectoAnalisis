@@ -42,7 +42,7 @@ namespace IUApp
                                     C.SegundoApellido = textSegApellido.Text;
                                     C.Email = textEmail.Text;
                                     C.Telefono = Convert.ToInt32(textTelefono.Text);
-                                    MessageBoxEx.Show(C.RegistrarCliente(), "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show(C.RegistrarCliente(), "Factura.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     Limpiar();
                                 }
                                 else
@@ -62,25 +62,25 @@ namespace IUApp
                      
                         else
                         {
-                            MessageBoxEx.Show("Por Favor Ingrese Dirección del Cliente.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("Por Favor Ingrese Dirección del Cliente.", "Factura.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             textEmail.Focus();
                         }
                     }
                     else
                     {
-                        MessageBoxEx.Show("Por Favor Ingrese Nombre(s) del Cliente.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Por Favor Ingrese Nombre(s) del Cliente.", "Factura.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         textApellido.Focus();
                     }
                 }
                 else
                 {
-                    MessageBoxEx.Show("Por Favor Ingrese Apellidos del Cliente.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Por Favor Ingrese Apellidos del Cliente.", "Factura.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtNombre.Focus();
                 }
             }
             else
             {
-                MessageBoxEx.Show("Por Favor Ingrese N° de D.N.I del Cliente.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Por Favor Ingrese N° de D.N.I del Cliente.", "Factura.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 textID.Focus();
             }
         }

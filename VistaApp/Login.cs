@@ -40,21 +40,21 @@ namespace VistaApp
                     Mensaje = U.IniciarSesion();
                     if (Mensaje == "Su Contraseña es Incorrecta.")
                     {
-                        MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                        MessageBox.Show(Mensaje, "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                         textUsuario.Clear();
                         textContraseña.Focus();
                     }
                     else
                          if (Mensaje == "El Nombre de Usuario no Existe.")
                     {
-                        MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                        MessageBox.Show(Mensaje, "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                         textUsuario.Clear();
                         textContraseña.Clear();
                         textUsuario.Focus();
                     }
                     else
                     {
-                        // MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                        // MessageBoxEx.Show(Mensaje, "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         Menu MP = new Menu();
 
                         MP.Show();
@@ -63,13 +63,13 @@ namespace VistaApp
                 }
                 else
                 {
-                    MessageBoxEx.Show("Por Favor Ingrese su Contraseña.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Por Favor Ingrese su Contraseña.", "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     textContraseña.Focus();
                 }
             }
             else
             {
-                MessageBoxEx.Show("Por Favor Ingrese Nombre de Usuario.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por Favor Ingrese Nombre de Usuario.", "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textUsuario.Focus();
             }
         }

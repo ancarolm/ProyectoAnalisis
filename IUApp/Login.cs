@@ -38,7 +38,7 @@ namespace IUApp
                     Mensaje = U.IniciarSesion();
                     if (Mensaje == "Su Contraseña es Incorrecta.")// en caso de que la contraseña sea la incorrecta
                     {
-                        MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                        MessageBox.Show(Mensaje, "Factura.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                         //textUsuario.Clear();
                         textContraseña.Clear();
                         textContraseña.Focus();
@@ -46,7 +46,7 @@ namespace IUApp
                     else
                          if (Mensaje == "El Nombre de Usuario no Existe.")// En caso de que el usuario no este en el sistema
                         {
-                            MessageBoxEx.Show(Mensaje, "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                            MessageBox.Show(Mensaje, "Factura.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                             textUsuario.Clear();
                             textContraseña.Clear();
                             textUsuario.Focus();
@@ -63,13 +63,13 @@ namespace IUApp
                 }
                 else
                 {// en caso de que deje el campo de contraseña en blanco
-                    MessageBoxEx.Show("Por Favor Ingrese su Contraseña.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Por Favor Ingrese su Contraseña.", "Factura.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     textContraseña.Focus();
                 }
             }
             else
             {// en caso de que deje en blanco el campo de usuario
-                MessageBoxEx.Show("Por Favor Ingrese Nombre de Usuario.", "Sistema de Ventas.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por Favor Ingrese Nombre de Usuario.", "Factura.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textUsuario.Focus();
             }
         }
