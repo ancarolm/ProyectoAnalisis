@@ -118,6 +118,7 @@
             this.textTelefono.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTelefono.ForeColor = System.Drawing.Color.DarkGray;
             this.textTelefono.Location = new System.Drawing.Point(281, 100);
+            this.textTelefono.MaxLength = 8;
             this.textTelefono.Multiline = true;
             this.textTelefono.Name = "textTelefono";
             this.textTelefono.Size = new System.Drawing.Size(130, 21);
