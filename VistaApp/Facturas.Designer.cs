@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdC = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,6 +38,7 @@
             this.idPlatillo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +56,8 @@
             this.Nombres,
             this.idPlatillo,
             this.idVendedor,
-            this.idPago});
+            this.idPago,
+            this.idCategoria});
             this.dataGridView1.Location = new System.Drawing.Point(4, 74);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(527, 339);
@@ -90,9 +92,9 @@
             // 
             // Nombres
             // 
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Nombres.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Nombres.DefaultCellStyle = dataGridViewCellStyle1;
             this.Nombres.HeaderText = "Detalle";
             this.Nombres.Name = "Nombres";
             this.Nombres.ReadOnly = true;
@@ -113,6 +115,12 @@
             // 
             this.idPago.HeaderText = "idPago";
             this.idPago.Name = "idPago";
+            // 
+            // idCategoria
+            // 
+            this.idCategoria.HeaderText = "idCategoria";
+            this.idCategoria.Name = "idCategoria";
+            this.idCategoria.Visible = false;
             // 
             // Facturas
             // 
@@ -140,5 +148,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idPlatillo;
         private System.Windows.Forms.DataGridViewTextBoxColumn idVendedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCategoria;
     }
 }

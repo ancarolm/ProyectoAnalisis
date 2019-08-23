@@ -41,7 +41,8 @@ namespace VistaApp
                     if (Mensaje == "Su Contraseña es Incorrecta.")
                     {
                         MessageBox.Show(Mensaje, "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                        textUsuario.Clear();
+                        //textUsuario.Clear();
+                        textContraseña.Clear();
                         textContraseña.Focus();
                     }
                     else

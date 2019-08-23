@@ -91,7 +91,7 @@ namespace VistaApp
                                     else
                                     {
                                         //MessageBox.Show("¡Producto agregado a inventario!");
-                                        MessageBoxEx.Show(Mensaje, "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MessageBox.Show(Mensaje, "Inventario.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         txtProducto.Clear();
                                         txtMarca.Clear();
                                         txtNombre.Clear();

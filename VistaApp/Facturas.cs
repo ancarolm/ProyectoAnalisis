@@ -36,9 +36,10 @@ namespace VistaApp
                     dataGridView1.Rows[i].Cells[2].Value = dt.Rows[i][2].ToString();
                     dataGridView1.Rows[i].Cells[3].Value = dt.Rows[i][3].ToString();
                     dataGridView1.Rows[i].Cells[4].Value = dt.Rows[i][4].ToString();
-                    dataGridView1.Rows[i].Cells[5].Value = dt.Rows[i][4].ToString();
-                    dataGridView1.Rows[i].Cells[6].Value = dt.Rows[i][4].ToString();
-                    dataGridView1.Rows[i].Cells[7].Value = dt.Rows[i][4].ToString();
+                    dataGridView1.Rows[i].Cells[5].Value = dt.Rows[i][5].ToString();
+                    dataGridView1.Rows[i].Cells[6].Value = dt.Rows[i][6].ToString();
+                    dataGridView1.Rows[i].Cells[7].Value = dt.Rows[i][7].ToString();
+                    dataGridView1.Rows[i].Cells[8].Value = dt.Rows[i][8].ToString();
 
                 }
             }
