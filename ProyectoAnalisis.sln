@@ -19,9 +19,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLogica", "AppLogica\AppL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IUApp", "IUApp\IUApp.csproj", "{A089562C-7371-4B74-B6B7-C6E72E2E61B8}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Inventario_setup", "Inventario_setup\Inventario_setup.vdproj", "{BFD20318-ACFF-4516-AFD8-F2CD6C0CF139}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "InventarioInstalar", "InventarioInstalar\InventarioInstalar.vdproj", "{A6FF873B-9FD4-4A76-89B7-E74B20C432DE}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Factura_setup", "Factura_setup\Factura_setup.vdproj", "{8502B629-9877-4ECA-97C9-6412588463EF}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "FacturaInstalar", "FacturaInstalar\FacturaInstalar.vdproj", "{37A24C10-3038-48DE-8649-56075C9E1909}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,10 @@ Global
 		{A089562C-7371-4B74-B6B7-C6E72E2E61B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A089562C-7371-4B74-B6B7-C6E72E2E61B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A089562C-7371-4B74-B6B7-C6E72E2E61B8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BFD20318-ACFF-4516-AFD8-F2CD6C0CF139}.Debug|Any CPU.ActiveCfg = Debug
-		{BFD20318-ACFF-4516-AFD8-F2CD6C0CF139}.Release|Any CPU.ActiveCfg = Release
-		{8502B629-9877-4ECA-97C9-6412588463EF}.Debug|Any CPU.ActiveCfg = Debug
-		{8502B629-9877-4ECA-97C9-6412588463EF}.Release|Any CPU.ActiveCfg = Release
+		{A6FF873B-9FD4-4A76-89B7-E74B20C432DE}.Debug|Any CPU.ActiveCfg = Debug
+		{A6FF873B-9FD4-4A76-89B7-E74B20C432DE}.Release|Any CPU.ActiveCfg = Release
+		{37A24C10-3038-48DE-8649-56075C9E1909}.Debug|Any CPU.ActiveCfg = Debug
+		{37A24C10-3038-48DE-8649-56075C9E1909}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
